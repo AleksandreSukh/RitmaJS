@@ -7,7 +7,7 @@
     <script type="text/javascript">
         function GetResults(word) {
             var self = this;
-            self.tasksURI = "http://ec2-54-84-34-85.compute-1.amazonaws.com/api/ritma/" + word;
+            self.tasksURI = "https://ec2-54-84-34-85.compute-1.amazonaws.com/api/ritma/" + word;
             self.freetoken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6InRlc3QiLCJzdWIiOiJ0ZXN0Iiwicm9sZSI6IlVzZXJzIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdC8iLCJhdWQiOiJBbnkiLCJleHAiOjE1MjcyMjUxMTgsIm5iZiI6MTUxMTY3MzExOH0.GwGR65c8qQK7zrnF6LWTjtEIgxfs-uQ_dPhCkf9J7LU";
             self.ajax = function (uri, method, data) {
                 var request = {
