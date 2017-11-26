@@ -32,6 +32,7 @@
             self.ajax(self.tasksURI, 'GET').done(function (data) {
                 //console.log(data);
                 var listDiv = document.getElementById('list-puntate');
+                $(listDiv).empty();
                 var ul = document.createElement('ul');
                 for (var i = 0; i < data.length; ++i) {
                     var li = document.createElement('li');
@@ -44,6 +45,18 @@
 
 
 
+
+    </script>
+</head>
+
+<body>
+    <input type="text" id="word-input"></input>
+    <button id="get-results" style="visibility:hidden">გლიჯე Enter-ს</button>
+    <script type="text/javascript">
+    $(document).ready(function () {
+            $("#list-puntate").hide();
+            $("#loading").hide();
+        });
         $(document).ajaxStart(function () {
             $("#list-puntate").hide();
             $("#loading").show();
@@ -53,13 +66,7 @@
             $("#loading").hide();
             $("#list-puntate").show();
         });
-    </script>
-</head>
 
-<body>
-    <textarea id="word-input">შეიყვანე სიტყვა აქ</textarea>
-    <button id="get-results">გარითმე</button>
-    <script type="text/javascript">
         $("#get-results").click(
             function (event) {
                 GetResults($("#word-input").val())
@@ -70,6 +77,7 @@
             }
         });
     </script>
+    <div id="loading" ><img src="zviadi.jpg"/></div>
     <div class="col-lg-12" id="list-puntate">
         <ul>
             <!-- <li>...</li> -->
