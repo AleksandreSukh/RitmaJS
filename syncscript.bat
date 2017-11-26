@@ -1,1 +1,1 @@
-aws s3 sync . s3://aws-website-ritmajs-x4wib
+aws s3 sync . s3://aws-website-ritmajs-x4wib --content-type "text/html; charset=utf-8"
