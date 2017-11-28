@@ -2,6 +2,19 @@
 <html>
 
 <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script type="text/javascript">
         function GetResults(word) {
@@ -36,6 +49,7 @@
                 var ul = document.createElement('ul');
                 for (var i = 0; i < data.length; ++i) {
                     var li = document.createElement('li');
+                    li.className = "list-group-item";
                     li.innerHTML = data[i];   // Use innerHTML to set the text
                     ul.appendChild(li);
                 }
@@ -50,9 +64,9 @@
 </head>
 
 <body>
-    <h2>რითმების პროგრამა</h2>
-    <input type="text" id="word-input">შეიყვანე ქართული სიტყვა და </input>
-    <button id="get-results">გლიჯე Enter-ს</button>
+    <h2 class="text-center col-lg-12 col-md-12 col-sm-12 col-xs-12">რითმების პროგრამა</h2>
+    <input type="text" id="word-input" class="input-lg text-center col-lg-12 col-md-12 col-sm-12 col-xs-12"></input>
+    <button id="get-results" class="btn btn-primary btn-lg col-lg-12 col-md-12 col-sm-12 col-xs-12">გლიჯე Enter-ს</button>
     <script type="text/javascript">
         $(document).ready(function () {
             $("#list-puntate").hide();
@@ -78,14 +92,15 @@
             }
         });
     </script>
-    <div id="loading">
+    <!-- <div id="loading">
         <img src="zviadi.jpg" />
         <div>
             უნდება დიდ ხანს, ასე, 20 წამამდე.</div>
-    </div>
-    <div class="col-lg-12" id="list-puntate">
-        <ul>
-            <!-- <li>...</li> -->
+    </div> -->
+    <div id="loading"><i class="fa fa-spinner fa-spin text-center col-lg-12 col-md-12 col-sm-12 col-xs-12" style="font-size:48px;color:red"></i></div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" id="list-puntate">
+        <ul class="list-group">
+            <li class="list-group-item">შედეგები</li>
         </ul>
     </div>
 </body>
