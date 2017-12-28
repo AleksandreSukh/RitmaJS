@@ -71,11 +71,28 @@
     <h2 class="text-center col-lg-12 col-md-12 col-sm-12 col-xs-12">რითმების პროგრამა</h2>
     <h4 class="text-center col-lg-12 col-md-12 col-sm-12 col-xs-12">(ამჟამად სერვერი გათიშულია და არ მუშაობს)</h4>
     <input type="text" id="word-input" class="input-lg text-center col-lg-12 col-md-12 col-sm-12 col-xs-12"></input>
+    <span id="error-text" class="input-lg text-center col-lg-12 col-md-12 col-sm-12 col-xs-12"></span>
     <button id="get-results" class="btn btn-primary btn-lg col-lg-12 col-md-12 col-sm-12 col-xs-12">გლიჯე Enter-ს</button>
     <script type="text/javascript">
+        function isGeorgianWord(word) {
+            var allowedSymbols = "აბგდევზთიკლმნოპჟრსტუფქღყშჩცძწჭხჯჰ ";
+            if (word.length == 0)
+                return false;
+            for (i = 0; i < word.length; i++) {
+                if (allowedSymbols.indexOf(word[i]) == -1) {
+                    return false;
+                }
+
+            }
+            return true;
+
+        }
+
+
         $(document).ready(function () {
             $("#list-puntate").hide();
             $("#loading").hide();
+            $("#error-text").hide();
         });
         $(document).ajaxStart(function () {
             $("#list-puntate").hide();
@@ -89,7 +106,18 @@
 
         $("#get-results").click(
             function (event) {
-                GetResults($("#word-input").val())
+                if ($("#word-input").val() == "") {
+                    $("#error-text").text("შეიყვანე რამე სიტყვა!");
+                    $("#error-text").show();
+                }
+                else if (!isGeorgianWord($("#word-input").val())) {
+                    $("#error-text").text("შეიყვანე ქართული სიტყვა!");
+                    $("#error-text").show();
+                }
+                else {
+                    $("#error-text").hide();
+                    GetResults($("#word-input").val());
+                }
             });
         $("#word-input").keyup(function (event) {
             if (event.keyCode === 13) {
